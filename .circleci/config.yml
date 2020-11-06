@@ -8,11 +8,8 @@ jobs:
     working_directory: ~/angular-front-personas
     docker:
       - image: circleci/node:10-browsers
-    executor: aws-cli/default
     steps:
       - checkout
-      - aws-cli/setup:
-          profile-name: Angular
       - restore_cache:
           key: angular-front-personas-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm install
