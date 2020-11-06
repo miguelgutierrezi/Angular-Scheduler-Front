@@ -7,6 +7,9 @@ import {RegisterComponent} from './components/users/register/register.component'
 import {LoginComponent} from './components/users/login/login.component';
 import {TasksComponent} from './components/tasks/tasks.component';
 import {HttpClientModule} from '@angular/common/http';
+import {CypherService} from './services/cypher.service';
+import {TasksService} from './services/tasks.service';
+import {UserService} from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule
   ],
   providers: [
-    HttpClientModule
+    HttpClientModule,
+    CypherService,
+    TasksService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
