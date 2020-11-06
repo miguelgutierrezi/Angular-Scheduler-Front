@@ -10,13 +10,15 @@ import {HttpClientModule} from '@angular/common/http';
 import {CypherService} from './services/cypher.service';
 import {TasksService} from './services/tasks.service';
 import {UserService} from './services/user.service';
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    TasksComponent
+    TasksComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
