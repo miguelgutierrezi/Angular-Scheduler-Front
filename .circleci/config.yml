@@ -27,8 +27,3 @@ jobs:
       - run:
           name: Deploy to Firebase
           command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN" --only hosting
-
-workflows:
-  build-and-deploy:
-    jobs:
-      - build-and-test
