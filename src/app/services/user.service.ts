@@ -9,7 +9,7 @@ import {User} from '../models/user';
 })
 export class UserService {
 
-  private static BASE_URL = environment.backUrl;
+  private readonly BASE_URL = environment.backUrl;
 
   constructor(
     private http: HttpClient
@@ -23,18 +23,18 @@ export class UserService {
       username,
       password
     };
-    return this.http.post(`${UserService.BASE_URL}/users`, body);
+    return this.http.post(`${this.BASE_URL}/users`, body);
   }
 
   public getUsers(): Observable<any> {
-    return this.http.get(`${UserService.BASE_URL}/users`);
+    return this.http.get(`${this.BASE_URL}/users`);
   }
 
   public getUser(id: string): Observable<any> {
     if (!id) {
       throw new Error('id is required');
     }
-    return this.http.get(`${UserService.BASE_URL}/users/${id}`);
+    return this.http.get(`${this.BASE_URL}/users/${id}`);
   }
 
   public createUser(user: User): Observable<any> {
@@ -46,7 +46,7 @@ export class UserService {
       username: user.username,
       password: user.password
     };
-    return this.http.post(`${UserService.BASE_URL}/users`, body);
+    return this.http.post(`${this.BASE_URL}/users`, body);
   }
 
   public updateUser(id: string, user: User): Observable<any> {
@@ -58,13 +58,13 @@ export class UserService {
       username: user.username,
       password: user.password
     };
-    return this.http.put(`${UserService.BASE_URL}/users/${id}`, body);
+    return this.http.put(`${this.BASE_URL}/users/${id}`, body);
   }
 
   public deleteUser(id: string): Observable<any> {
     if (!id) {
       throw new Error('id is required');
     }
-    return this.http.delete(`${UserService.BASE_URL}/users/${id}`);
+    return this.http.delete(`${this.BASE_URL}/users/${id}`);
   }
 }
