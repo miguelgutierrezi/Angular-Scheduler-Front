@@ -11,6 +11,7 @@ import {CypherService} from './services/cypher.service';
 import {TasksService} from './services/tasks.service';
 import {UserService} from './services/user.service';
 import { UsersComponent } from './components/users/users.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UsersComponent } from './components/users/users.component';
     RegisterComponent,
     LoginComponent,
     TasksComponent,
-    UsersComponent
+    UsersComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
