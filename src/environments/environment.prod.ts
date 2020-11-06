@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  backUrl: 'http://localhost:3000/api/v1',
+  backUrl: 'https://nodejs-scheduler-back.herokuapp.com/api/v1',
   cypherKey: 'SCHEDULER_CYPHER_KEY'
 };
