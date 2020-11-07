@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {RegisterComponent} from './components/users/register/register.component';
 import {TasksComponent} from './components/tasks/tasks.component';
 import {HttpClientModule} from '@angular/common/http';
 import {CypherService} from './services/cypher.service';
@@ -16,7 +15,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
     TasksComponent,
     UsersComponent,
     NotFoundComponent
