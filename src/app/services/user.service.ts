@@ -15,15 +15,15 @@ export class UserService {
     private http: HttpClient
   ) { }
 
-  public login(username: string, password: string): Observable<any> {
-    if (!username || !password) {
+  public login(email: string, password: string): Observable<any> {
+    if (!email || !password) {
       throw new Error('missing params');
     }
     const body = {
-      username,
+      email,
       password
     };
-    return this.http.post(`${this.BASE_URL}/users`, body);
+    return this.http.post(`${this.BASE_URL}/login`, body);
   }
 
   public getUsers(): Observable<any> {
@@ -43,7 +43,7 @@ export class UserService {
     }
     const body = {
       name: user.name,
-      username: user.email,
+      email: user.email,
       password: user.password
     };
     return this.http.post(`${this.BASE_URL}/users`, body);
@@ -55,7 +55,7 @@ export class UserService {
     }
     const body = {
       name: user.name,
-      username: user.email,
+      email: user.email,
       password: user.password
     };
     return this.http.put(`${this.BASE_URL}/users/${id}`, body);
