@@ -8,7 +8,7 @@ describe('UserService', () => {
   const user: User = new User();
   user.id = 'Id';
   user.name = 'Name';
-  user.username = 'Username';
+  user.email = 'username@test.com';
   user.password = 'Password';
 
   beforeEach(() => {
@@ -23,7 +23,7 @@ describe('UserService', () => {
   }));
 
   it('service should send login request', inject([UserService], (service: UserService) => {
-    service.login(user.username, user.password);
+    service.login(user.email, user.password);
     expect(service).toBeTruthy();
   }));
 

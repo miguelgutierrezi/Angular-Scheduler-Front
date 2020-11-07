@@ -43,7 +43,7 @@ export class UserService {
     }
     const body = {
       name: user.name,
-      username: user.username,
+      username: user.email,
       password: user.password
     };
     return this.http.post(`${this.BASE_URL}/users`, body);
@@ -55,7 +55,7 @@ export class UserService {
     }
     const body = {
       name: user.name,
-      username: user.username,
+      username: user.email,
       password: user.password
     };
     return this.http.put(`${this.BASE_URL}/users/${id}`, body);
