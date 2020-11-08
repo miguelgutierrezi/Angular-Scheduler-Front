@@ -2,7 +2,7 @@
   <div class="testBox">
     <h1 class="header-register">{{isRegisterMode ? 'Registration' : 'Login'}}</h1>
     <hr>
-    <form [formGroup]="onLoginForm" *ngIf="!isRegisterMode">
+    <form [formGroup]="onLoginForm" *ngIf="!isRegisterMode" (ngSubmit)="onSubmit()">
       <div class="form-wrapper">
         <label for="email">Email</label>
         <input class="input-form" type="email" id="email" formControlName="email" placeholder="Email">
@@ -11,10 +11,10 @@
         <input class="input-form" type="password" id="password" formControlName="password" placeholder="Password">
       </div>
       <div class="btn-submit">
-        <button class="btn-register">Register</button>
+        <button class="btn-register" [disabled]="onLoginForm.invalid">Login</button>
       </div>
     </form>
-    <form [formGroup]="onRegistrationForm" *ngIf="isRegisterMode">
+    <form [formGroup]="onRegistrationForm" *ngIf="isRegisterMode" (ngSubmit)="onSubmit()">
       <div class="form-wrapper">
         <label for="name">Name</label>
         <input class="input-form" type="text" id="name" formControlName="name" placeholder="Name">
@@ -26,12 +26,12 @@
         <input class="input-form" type="password" id="password" formControlName="password" placeholder="Password">
       </div>
       <div class="btn-submit">
-        <button class="btn-register">Register</button>
+        <button class="btn-register" [disabled]="onRegistrationForm.invalid">Register</button>
       </div>
     </form>
     <div class="button-change">
       <a href="javascript: void(0)"
-         (click)="onChangeMode()">{{isRegisterMode ? 'No tienes cuenta? Registrate aquí' : 'Ya tengo cuenta. Quiero iniciar sesión'}}</a>
+         (click)="onChangeMode()">{{isRegisterMode ? 'Ya tengo cuenta. Quiero iniciar sesión' : 'No tienes cuenta? Registrate aquí'}}</a>
     </div>
   </div>
 </div>

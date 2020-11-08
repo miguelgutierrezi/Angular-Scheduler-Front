@@ -8,9 +8,10 @@ import {HttpClientModule} from '@angular/common/http';
 import {CypherService} from './services/cypher.service';
 import {TasksService} from './services/tasks.service';
 import {UserService} from './services/user.service';
-import { UsersComponent } from './components/users/users.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import {UsersComponent} from './components/users/users.component';
+import {NotFoundComponent} from './components/not-found/not-found.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AuthGuard} from './services/auth.guard';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   providers: [
     CypherService,
     TasksService,
-    UserService
+    UserService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
