@@ -92,7 +92,8 @@ export class UsersComponent implements OnInit {
       console.log(res);
       localStorage.setItem('token', res.token);
       localStorage.setItem('date', res.date);
-      this.router.navigate(['/home']);
+      localStorage.setItem('userId', res.userId);
+      this.router.navigate(['/home', res.userId]);
     }, error => {
       this.isLoading = false;
       console.log(error);

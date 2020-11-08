@@ -9,9 +9,13 @@
       <div class="form-wrapper">
         <label for="email">Email</label>
         <input class="input-form" type="email" id="email" formControlName="email" placeholder="Email">
+        <br *ngIf="onLoginForm.get('email').invalid && onLoginForm.get('email').touched"/>
+        <span class="error-txt" *ngIf="onLoginForm.get('email').invalid && onLoginForm.get('email').touched">Invalid email</span>
         <br>
         <label for="password">Password</label>
         <input class="input-form" type="password" id="password" formControlName="password" placeholder="Password">
+        <br *ngIf="onLoginForm.get('password').invalid && onLoginForm.get('password').touched"/>
+        <span class="error-txt" *ngIf="onLoginForm.get('password').invalid && onLoginForm.get('password').touched">Password is required</span>
       </div>
       <div class="btn-submit">
         <button class="btn-register" [disabled]="onLoginForm.invalid">Login</button>
@@ -21,12 +25,18 @@
       <div class="form-wrapper">
         <label for="name">Name</label>
         <input class="input-form" type="text" id="name" formControlName="name" placeholder="Name">
+        <br *ngIf="onRegistrationForm.get('name').invalid && onRegistrationForm.get('name').touched"/>
+        <span class="error-txt" *ngIf="onRegistrationForm.get('name').invalid && onRegistrationForm.get('name').touched">Name is required</span>
         <br>
         <label for="email">Email</label>
         <input class="input-form" type="email" id="email" formControlName="email" placeholder="Email">
+        <br *ngIf="onRegistrationForm.get('email').invalid && onRegistrationForm.get('email').touched"/>
+        <span class="error-txt" *ngIf="onRegistrationForm.get('email').invalid && onRegistrationForm.get('email').touched">Invalid email</span>
         <br>
         <label for="password">Password</label>
         <input class="input-form" type="password" id="password" formControlName="password" placeholder="Password">
+        <br *ngIf="onRegistrationForm.get('password').invalid && onRegistrationForm.get('password').touched"/>
+        <span class="error-txt" *ngIf="onRegistrationForm.get('password').invalid && onRegistrationForm.get('password').touched">Password is required</span>
       </div>
       <div class="btn-submit">
         <button class="btn-register" [disabled]="onRegistrationForm.invalid">Register</button>
@@ -34,7 +44,7 @@
     </form>
     <div class="button-change">
       <a href="javascript: void(0)"
-         (click)="onChangeMode()">{{isRegisterMode ? 'Ya tengo cuenta. Quiero iniciar sesión' : 'No tienes cuenta? Registrate aquí'}}</a>
+         (click)="onChangeMode()">{{isRegisterMode ? 'Already have an account. I want to sign in.' : 'Do not have an account? Sign up here'}}</a>
     </div>
   </div>
 </div>
