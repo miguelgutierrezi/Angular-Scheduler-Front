@@ -69,6 +69,6 @@ export class UserService {
   }
 
   public isLoggedIn(): boolean {
-    return localStorage.getItem('token') !== undefined;
+    return !!localStorage.getItem('token');
   }
 }
