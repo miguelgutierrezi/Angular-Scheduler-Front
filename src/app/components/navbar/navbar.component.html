@@ -1,10 +1,13 @@
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Simple scheduler</a>
-    </div>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a (click)="onLogout()"><span class="glyphicon glyphicon-log-out"></span></a></li>
+<nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+  <a class="navbar-brand">Simple scheduler</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
     </ul>
+    <button (click)="onLogout()" class="navbar-text btn-logout">
+      Logout
+    </button>
   </div>
 </nav>
