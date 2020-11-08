@@ -76,4 +76,9 @@ describe('UserService', () => {
     expect(() => service.deleteUser(undefined)).toThrowError();
     expect(service).toBeTruthy();
   }));
+
+  it('service should send isLoggedIn request', inject([UserService], (service: UserService) => {
+    service.isLoggedIn();
+    expect(service).toBeTruthy();
+  }));
 });

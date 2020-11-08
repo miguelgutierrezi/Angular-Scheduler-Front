@@ -14,7 +14,7 @@ describe('UsersComponent', () => {
   let routerServiceSpy;
 
   routerServiceSpy = jasmine.createSpyObj('Route', [ 'navigate' ]);
-  userServiceSpy = jasmine.createSpyObj('UserService', ['login', 'createUser']);
+  userServiceSpy = jasmine.createSpyObj('UserService', [ 'login', 'createUser', 'isLoggedIn' ]);
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [UsersComponent],
@@ -37,8 +37,15 @@ describe('UsersComponent', () => {
   });
 
   it('should create', () => {
+    userServiceSpy.isLoggedIn.and.returnValue(false);
     component.ngOnInit();
     component.onChangeMode();
+    expect(component).toBeTruthy();
+  });
+
+  it('should create and redirect', () => {
+    userServiceSpy.isLoggedIn.and.returnValue(true);
+    component.ngOnInit();
     expect(component).toBeTruthy();
   });
 

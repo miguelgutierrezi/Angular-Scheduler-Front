@@ -13,6 +13,7 @@ import {NotFoundComponent} from './components/not-found/not-found.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthGuard} from './services/auth.guard';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     TasksComponent,
     UsersComponent,
     NotFoundComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,

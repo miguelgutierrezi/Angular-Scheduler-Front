@@ -67,4 +67,8 @@ export class UserService {
     }
     return this.http.delete(`${this.BASE_URL}/users/${id}`);
   }
+
+  public isLoggedIn(): boolean {
+    return localStorage.getItem('token') !== undefined;
+  }
 }

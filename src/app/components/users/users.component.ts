@@ -11,9 +11,10 @@ import {Router} from '@angular/router';
   styleUrls: ['./users.component.sass']
 })
 export class UsersComponent implements OnInit {
-  isRegisterMode = false;
+  public isRegisterMode = false;
   public onLoginForm: FormGroup;
   public onRegistrationForm: FormGroup;
+  public isLoading = false;
 
   constructor(
     private authService: UserService,
@@ -24,7 +25,7 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (localStorage.getItem('token')) {
+    if (this.authService.isLoggedIn()) {
       this.router.navigate(['/home']);
     }
     this.onLoginForm = this.formBuilder.group({
@@ -56,8 +57,10 @@ export class UsersComponent implements OnInit {
   }
 
   public onSubmit(): void {
+    this.isLoading = true;
     if (!this.isRegisterMode) {
       if (this.onLoginForm.invalid) {
+        this.isLoading = false;
         return;
       }
       const encryptedPassword = this.cypherService.encrypt(this.onLoginForm.get('password').value);
@@ -65,6 +68,7 @@ export class UsersComponent implements OnInit {
       this.onLogin(email, encryptedPassword);
     } else {
       if (this.onRegistrationForm.invalid) {
+        this.isLoading = false;
         return;
       }
       const user = new User();
@@ -75,6 +79,7 @@ export class UsersComponent implements OnInit {
         console.log(res);
         this.onLogin(user.email, user.password);
       }, error => {
+        this.isLoading = false;
         console.log(error);
       });
     }
@@ -83,11 +88,13 @@ export class UsersComponent implements OnInit {
   private onLogin(email: string, password: string): void {
     console.log(password);
     this.authService.login(email, password).subscribe(res => {
+      this.isLoading = false;
       console.log(res);
       localStorage.setItem('token', res.token);
       localStorage.setItem('date', res.date);
       this.router.navigate(['/home']);
     }, error => {
+      this.isLoading = false;
       console.log(error);
     });
   }
