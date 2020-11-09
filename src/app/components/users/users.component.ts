@@ -15,6 +15,7 @@ export class UsersComponent implements OnInit {
   public onLoginForm: FormGroup;
   public onRegistrationForm: FormGroup;
   public isLoading = false;
+  public error = null;
 
   constructor(
     private authService: UserService,
@@ -79,6 +80,7 @@ export class UsersComponent implements OnInit {
         console.log(res);
         this.onLogin(user.email, user.password);
       }, error => {
+        this.error = error.error.message;
         this.isLoading = false;
         console.log(error);
       });
@@ -95,8 +97,13 @@ export class UsersComponent implements OnInit {
       localStorage.setItem('userId', res.userId);
       this.router.navigate(['/home', res.userId]);
     }, error => {
+      this.error = error.error.message;
       this.isLoading = false;
       console.log(error);
     });
+  }
+
+  public closeError(): void {
+    this.error = null;
   }
 }

@@ -13,8 +13,9 @@ import {NotFoundComponent} from './components/not-found/not-found.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthGuard} from './services/auth.guard';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { LoadingSpinnerComponent } from './components/shared/loading-spinner/loading-spinner.component';
 import {AuthInterceptor} from './services/auth.interceptor';
+import { AlertComponent } from './components/shared/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {AuthInterceptor} from './services/auth.interceptor';
     UsersComponent,
     NotFoundComponent,
     NavbarComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
