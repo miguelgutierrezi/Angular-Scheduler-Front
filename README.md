@@ -32,3 +32,26 @@ Run `npm run build` or `ng build` to build the project. The build artifacts will
 
 Here you have some images for seeing how the app works:
 
+### Login
+<img src="https://raw.githubusercontent.com/miguelgutierrezi/Angular-Scheduler-Front/master/images/login.png" width="600" height="350">
+
+### Register
+<img src="https://raw.githubusercontent.com/miguelgutierrezi/Angular-Scheduler-Front/master/images/register.png" width="600" height="350">
+
+### Tasks list
+<img src="https://raw.githubusercontent.com/miguelgutierrezi/Angular-Scheduler-Front/master/images/tasks-list.png" width="600" height="350">
+
+### No tasks list
+<img src="https://raw.githubusercontent.com/miguelgutierrezi/Angular-Scheduler-Front/master/images/no-tasks-list.png" width="600" height="350">
+
+### Add task
+<img src="https://raw.githubusercontent.com/miguelgutierrezi/Angular-Scheduler-Front/master/images/add-task.png" width="600" height="350">
+
+### Edit task
+<img src="https://raw.githubusercontent.com/miguelgutierrezi/Angular-Scheduler-Front/master/images/edit-task.png" width="600" height="350">
+
+### Task reminder
+<img src="https://raw.githubusercontent.com/miguelgutierrezi/Angular-Scheduler-Front/master/images/tasks-reminder.png" width="600" height="350">
+
+### No tasks reminder
+<img src="https://raw.githubusercontent.com/miguelgutierrezi/Angular-Scheduler-Front/master/images/no-tasks-reminder.png" width="600" height="350">
