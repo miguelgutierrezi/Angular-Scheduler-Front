@@ -68,6 +68,7 @@ describe('TasksComponent', () => {
     component.closeEditComponent();
     component.closeAddComponent();
     component.closeError();
+    component.closeReminder();
     component.setTask(task);
     expect(component).toBeTruthy();
   });

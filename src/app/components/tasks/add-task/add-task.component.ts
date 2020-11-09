@@ -41,9 +41,12 @@ export class AddTaskComponent implements OnInit {
       return;
     }
     const newTask: Task = new Task();
+    const date = new Date(this.onAddTask.get('date').value);
+    date.setDate(date.getDate() + 1);
     newTask.name = this.onAddTask.get('name').value;
     newTask.priority = +this.onAddTask.get('priority').value;
-    newTask.date = new Date(this.onAddTask.get('date').value);
+    newTask.date = date;
+    newTask.date.setHours(5);
     newTask.userId = localStorage.getItem('userId');
 
     this.taskService.createTask(newTask).subscribe((res) => {

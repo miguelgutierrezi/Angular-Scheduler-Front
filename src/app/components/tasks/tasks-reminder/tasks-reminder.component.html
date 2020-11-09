@@ -1,0 +1,18 @@
+<div class="backdrop" (click)="onClose()"></div>
+<div class="alert-box">
+  <h3 class="text-center">Tasks reminder</h3>
+  <div class="mb-3 mt-3" *ngIf="tasksAboutEnd.length !== 0">
+    <label>These tasks are about to finish today {{currentDate | date: 'fullDate'}}</label>
+    <br/>
+    <ul>
+      <li *ngFor="let task of tasksAboutEnd">{{task}}</li>
+    </ul>
+  </div>
+  <div class="mb-3 mt-3 text-center" *ngIf="tasksAboutEnd.length === 0">
+    <label>There are no upcoming tasks to finish today</label>
+    <br/>
+  </div>
+  <div class="alert-box-actions">
+    <button class="btn-register" (click)="onClose()">Close</button>
+  </div>
+</div>

@@ -12,12 +12,13 @@ import {UsersComponent} from './components/users/users.component';
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthGuard} from './services/auth.guard';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { LoadingSpinnerComponent } from './components/shared/loading-spinner/loading-spinner.component';
 import {AuthInterceptor} from './services/auth.interceptor';
 import { AlertComponent } from './components/shared/alert/alert.component';
 import { AddTaskComponent } from './components/tasks/add-task/add-task.component';
 import { EditTaskComponent } from './components/tasks/edit-task/edit-task.component';
+import { TasksReminderComponent } from './components/tasks/tasks-reminder/tasks-reminder.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { EditTaskComponent } from './components/tasks/edit-task/edit-task.compon
     LoadingSpinnerComponent,
     AlertComponent,
     AddTaskComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    TasksReminderComponent
   ],
   imports: [
     BrowserModule,

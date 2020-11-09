@@ -14,6 +14,7 @@ export class TasksComponent implements OnInit {
   private userId: string;
   public addComponent = false;
   public editComponent = false;
+  public reminderComponent = false;
   public error = null;
   public selectedTask: Task = null;
 
@@ -29,6 +30,7 @@ export class TasksComponent implements OnInit {
       this.isLoading = true;
       this.getTasks();
     });
+    this.reminderComponent = true;
   }
 
   private getTasks(): void {
@@ -78,6 +80,10 @@ export class TasksComponent implements OnInit {
     this.error = null;
     this.isLoading = true;
     this.getTasks();
+  }
+
+  public closeReminder(): void {
+    this.reminderComponent = false;
   }
 
   public setTask(task: Task): void {

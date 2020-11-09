@@ -43,10 +43,12 @@ export class EditTaskComponent implements OnInit {
       return;
     }
     const newTask: Task = new Task();
+    const date = new Date(this.onEditTask.get('date').value);
+    date.setDate(date.getDate() + 1);
     newTask.id = this.task.id;
     newTask.name = this.onEditTask.get('name').value;
     newTask.priority = +this.onEditTask.get('priority').value;
-    newTask.date = new Date(this.onEditTask.get('date').value);
+    newTask.date = date;
     newTask.userId = localStorage.getItem('userId');
 
     this.taskService.updateTask(newTask).subscribe((res) => {
