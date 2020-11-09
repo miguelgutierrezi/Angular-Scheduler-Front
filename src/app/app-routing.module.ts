@@ -6,7 +6,7 @@ import {UsersComponent} from './components/users/users.component';
 import {AuthGuard} from './services/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/auth', pathMatch: 'full' },
   { path: 'home/:userId', component: TasksComponent, canActivate: [AuthGuard] },
   { path: 'auth', component: UsersComponent },
   { path: 'not-found', component: NotFoundComponent },

@@ -26,7 +26,7 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authService.isLoggedIn()) {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/home', localStorage.getItem('userId')]);
     }
     this.onLoginForm = this.formBuilder.group({
       email: [null, Validators.compose([
