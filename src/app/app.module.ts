@@ -16,6 +16,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoadingSpinnerComponent } from './components/shared/loading-spinner/loading-spinner.component';
 import {AuthInterceptor} from './services/auth.interceptor';
 import { AlertComponent } from './components/shared/alert/alert.component';
+import { AddTaskComponent } from './components/tasks/add-task/add-task.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AlertComponent } from './components/shared/alert/alert.component';
     NotFoundComponent,
     NavbarComponent,
     LoadingSpinnerComponent,
-    AlertComponent
+    AlertComponent,
+    AddTaskComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,31 @@
+<div class="backdrop" (click)="onClose()"></div>
+<div class="alert-box">
+  <div class="testBox mb-3">
+    <h1 class="header-register">Add task</h1>
+    <hr>
+    <form [formGroup]="onAddTask" (ngSubmit)="onSubmit()">
+      <div class="form-wrapper">
+        <label for="name">Name</label>
+        <input class="input-form" type="text" id="name" formControlName="name" placeholder="Name">
+        <br *ngIf="onAddTask.get('name').invalid && onAddTask.get('name').touched"/>
+        <span class="error-txt" *ngIf="onAddTask.get('name').invalid && onAddTask.get('name').touched">Name is required</span>
+        <br>
+        <label for="priority">Priority</label>
+        <input class="input-form" type="number" id="priority" formControlName="priority" placeholder="Priority">
+        <br *ngIf="onAddTask.get('priority').invalid && onAddTask.get('priority').touched"/>
+        <span class="error-txt" *ngIf="onAddTask.get('priority').invalid && onAddTask.get('priority').touched">Priority is required</span>
+        <br>
+        <label for="date">Date</label>
+        <input class="input-form" type="date" id="date" formControlName="date" placeholder="Due Date">
+        <br *ngIf="onAddTask.get('date').invalid && onAddTask.get('date').touched"/>
+        <span class="error-txt" *ngIf="onAddTask.get('date').invalid && onAddTask.get('date').touched">Due date is required</span>
+      </div>
+      <div class="btn-submit">
+        <button class="btn-register" [disabled]="onAddTask.invalid">Add task</button>
+      </div>
+    </form>
+  </div>
+  <div class="alert-box-actions">
+    <button class="btn-register" (click)="onClose()">Close</button>
+  </div>
+</div>

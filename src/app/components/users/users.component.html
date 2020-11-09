@@ -1,4 +1,5 @@
-<app-alert [message]="error" *ngIf="error" (closeAlert)="closeError()"></app-alert><div class="text-center" *ngIf="isLoading">
+<app-alert [message]="error" *ngIf="error" (closeAlert)="closeError()"></app-alert>
+<div class="text-center" *ngIf="isLoading">
   <app-loading-spinner></app-loading-spinner>
 </div>
 <div class="container" *ngIf="!isLoading">
