@@ -6,6 +6,9 @@ import {UserService} from '../../services/user.service';
 import {ReactiveFormsModule} from '@angular/forms';
 import {Router} from '@angular/router';
 import {of} from 'rxjs';
+import {AuthGuard} from '../../services/auth.guard';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor} from '../../services/auth.interceptor';
 
 describe('UsersComponent', () => {
   let component: UsersComponent;
@@ -24,7 +27,13 @@ describe('UsersComponent', () => {
       ],
       providers: [
         {provide: UserService, useValue: userServiceSpy},
-        {provide: Router, useValue: routerServiceSpy}
+        {provide: Router, useValue: routerServiceSpy},
+        AuthGuard,
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: AuthInterceptor,
+          multi: true
+        }
       ]
     })
       .compileComponents();

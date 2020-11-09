@@ -1,2 +1,21 @@
 <app-navbar></app-navbar>
-<p>tasks works!</p>
+<h2 class="text-center mt-5" *ngIf="tasks.length === 0">User does not have any task</h2>
+<div class="ml-5 mr-5" *ngIf="tasks.length === 0">
+  <div class="row">
+    <div class="col-4">
+      <div class="list-group" id="list-tab" role="tablist">
+        <a *ngFor="let task of tasks" class="list-group-item list-group-item-action active" id="list-home-list"
+           data-toggle="list" href="#list-home" role="tab" aria-controls="home">{{task.name}}</a>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...</div>
+        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
+        <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+        <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="mt-5 btn-register">Create new task</button>
