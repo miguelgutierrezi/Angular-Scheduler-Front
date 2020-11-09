@@ -9,11 +9,19 @@ import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {AuthGuard} from '../../services/auth.guard';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthInterceptor} from '../../services/auth.interceptor';
+import {Task} from '../../models/task';
 
 describe('TasksComponent', () => {
   let component: TasksComponent;
   let fixture: ComponentFixture<TasksComponent>;
   let taskServiceSpy;
+
+  const task: Task = new Task();
+  task.id = 'ID';
+  task.name = 'NAME';
+  task.priority = 5;
+  task.date = new Date();
+  task.userId = 'USERID';
 
   // taskServiceSpy = jasmine.createSpyObj('TasksService', [ 'getTasks' ]);
 
@@ -55,6 +63,29 @@ describe('TasksComponent', () => {
       _v: '0'
     }]));
     component.ngOnInit();
+    component.loadAddComponent();
+    component.loadEditComponent();
+    component.closeEditComponent();
+    component.closeAddComponent();
+    component.closeError();
+    component.setTask(task);
+    expect(component).toBeTruthy();
+  });
+
+  it('should send delete task', () => {
+    component.selectedTask = task;
+    spyOn(taskServiceSpy, 'deleteTask').and.returnValue(of([{
+      message: 'Deleted element'
+    }]));
+    component.deleteTask();
+    expect(component).toBeTruthy();
+  });
+
+  it('should send delete all tasks', () => {
+    spyOn(taskServiceSpy, 'deleteTasks').and.returnValue(of([{
+      message: 'Deleted tasks'
+    }]));
+    component.deleteAllTasks();
     expect(component).toBeTruthy();
   });
 });
