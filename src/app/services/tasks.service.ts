@@ -37,7 +37,8 @@ export class TasksService {
     const newTask = {
       name: task.name,
       priority: task.priority,
-      dateTask: task.date
+      dateTask: task.date,
+      date: localStorage.getItem('date')
     };
     return this.http.post(`${this.BASE_URL}/tasks/create/${this.userId}`, newTask);
   }
@@ -49,7 +50,8 @@ export class TasksService {
     const updatedTask = {
       name: newTask.name,
       priority: newTask.priority,
-      dateTask: newTask.date
+      dateTask: newTask.date,
+      date: localStorage.getItem('date')
     };
     return this.http.put(`${this.BASE_URL}/tasks/${this.userId}/${newTask.id}`, updatedTask);
   }

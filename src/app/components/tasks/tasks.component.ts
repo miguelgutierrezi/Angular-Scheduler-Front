@@ -14,6 +14,7 @@ export class TasksComponent implements OnInit {
   private userId: string;
   public addComponent = false;
   public error = null;
+  public selectedTask: Task = null;
 
   constructor(
     private tasksService: TasksService,
@@ -62,5 +63,9 @@ export class TasksComponent implements OnInit {
     this.error = null;
     this.isLoading = true;
     this.getTasks();
+  }
+
+  public setTask(task: Task): void {
+    this.selectedTask = task;
   }
 }

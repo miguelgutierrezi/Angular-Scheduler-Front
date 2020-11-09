@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {TasksService} from '../../../services/tasks.service';
+import {Task} from '../../../models/task';
 
 @Component({
   selector: 'app-add-task',
@@ -34,5 +35,21 @@ export class AddTaskComponent implements OnInit {
 
   public onClose(): void {
     this.closeAlert.emit();
+  }
+
+  public onSubmit(): void {
+    if (this.onAddTask.invalid) {
+      return;
+    }
+    const newTask: Task = new Task();
+    newTask.name = this.onAddTask.get('name').value;
+    newTask.priority = +this.onAddTask.get('priority').value;
+    newTask.date = new Date(this.onAddTask.get('name').value);
+    newTask.userId = localStorage.getItem('userId');
+
+    this.taskService.createTask(newTask).subscribe((res) => {
+      console.log(res);
+      this.closeAlert.emit();
+    });
   }
 }
