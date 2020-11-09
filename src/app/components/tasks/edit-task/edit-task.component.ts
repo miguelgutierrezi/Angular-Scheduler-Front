@@ -4,14 +4,15 @@ import {TasksService} from '../../../services/tasks.service';
 import {Task} from '../../../models/task';
 
 @Component({
-  selector: 'app-add-task',
-  templateUrl: './add-task.component.html',
-  styleUrls: ['./add-task.component.sass']
+  selector: 'app-edit-task',
+  templateUrl: './edit-task.component.html',
+  styleUrls: ['./edit-task.component.sass']
 })
-export class AddTaskComponent implements OnInit {
+export class EditTaskComponent implements OnInit {
 
+  @Input() task: Task;
   @Output() closeAlert = new EventEmitter<void>();
-  public onAddTask: FormGroup;
+  public onEditTask: FormGroup;
 
   constructor(
     private taskService: TasksService,
@@ -19,17 +20,18 @@ export class AddTaskComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.onAddTask = this.formBuilder.group({
-      name: [null, Validators.compose([
+    this.onEditTask = this.formBuilder.group({
+      name: [this.task.name, Validators.compose([
         Validators.required
       ])],
-      priority: [null, Validators.compose([
+      priority: [this.task.priority, Validators.compose([
         Validators.required
       ])],
-      date: [null, Validators.compose([
+      date: [this.task.date, Validators.compose([
         Validators.required
       ])]
     });
+    console.log(this.onEditTask.value);
   }
 
   public onClose(): void {
@@ -37,16 +39,17 @@ export class AddTaskComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    if (this.onAddTask.invalid) {
+    if (this.onEditTask.invalid) {
       return;
     }
     const newTask: Task = new Task();
-    newTask.name = this.onAddTask.get('name').value;
-    newTask.priority = +this.onAddTask.get('priority').value;
-    newTask.date = new Date(this.onAddTask.get('date').value);
+    newTask.id = this.task.id;
+    newTask.name = this.onEditTask.get('name').value;
+    newTask.priority = +this.onEditTask.get('priority').value;
+    newTask.date = new Date(this.onEditTask.get('date').value);
     newTask.userId = localStorage.getItem('userId');
 
-    this.taskService.createTask(newTask).subscribe((res) => {
+    this.taskService.updateTask(newTask).subscribe((res) => {
       console.log(res);
       this.closeAlert.emit();
     });

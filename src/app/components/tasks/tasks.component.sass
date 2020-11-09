@@ -1,5 +1,17 @@
 @import "src/styles"
 
+.buttons-section
+  width: 100%
+  display: flex
+  .btn-register
+    display: block
+    margin-left: 0
+    margin-right: 0
+  .btn-delete
+    display: block
+    margin-left: 0
+    margin-right: 0
+
 .btn-register
   display: flex
   margin-left: auto
@@ -7,6 +19,29 @@
   justify-content: center
   padding: 5px
 
+.btn-delete
+  display: flex
+  margin-left: auto
+  margin-right: auto
+  justify-content: center
+  padding: 5px
+
 .active-custom
-  background-color: #3a57af
-  border: solid 1px white
+  background-color: #f6f6f6
+
+.inactive-custom
+  background-color: white
+
+ul
+  list-style-type: none
+  padding: 0
+  margin: 0
+  li
+    border: 1px solid #ddd
+    margin-top: -1px
+    padding: 12px
+  li:hover
+    background-color: #f6f6f6
+
+.custom-box
+  border: solid 1px #ddd

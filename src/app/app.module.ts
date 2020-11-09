@@ -17,6 +17,7 @@ import { LoadingSpinnerComponent } from './components/shared/loading-spinner/loa
 import {AuthInterceptor} from './services/auth.interceptor';
 import { AlertComponent } from './components/shared/alert/alert.component';
 import { AddTaskComponent } from './components/tasks/add-task/add-task.component';
+import { EditTaskComponent } from './components/tasks/edit-task/edit-task.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AddTaskComponent } from './components/tasks/add-task/add-task.component
     NavbarComponent,
     LoadingSpinnerComponent,
     AlertComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    EditTaskComponent
   ],
   imports: [
     BrowserModule,

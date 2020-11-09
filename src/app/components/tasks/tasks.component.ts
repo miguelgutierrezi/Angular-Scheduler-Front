@@ -13,6 +13,7 @@ export class TasksComponent implements OnInit {
   public tasks: Array<Task> = [];
   private userId: string;
   public addComponent = false;
+  public editComponent = false;
   public error = null;
   public selectedTask: Task = null;
 
@@ -32,6 +33,7 @@ export class TasksComponent implements OnInit {
 
   private getTasks(): void {
     this.tasks = [];
+    this.selectedTask = null;
     this.tasksService.getTasks().subscribe((tasks) => {
       for (const task of tasks) {
         const newTask = new Task();
@@ -43,6 +45,9 @@ export class TasksComponent implements OnInit {
         this.tasks.push(newTask);
       }
       this.isLoading = false;
+      if (this.tasks.length !== 0) {
+        this.selectedTask = this.tasks[0];
+      }
     }, (err) => {
       this.error = err.error.message;
       console.log(err);
@@ -59,6 +64,16 @@ export class TasksComponent implements OnInit {
     this.getTasks();
   }
 
+  public loadEditComponent(): void {
+    this.editComponent = true;
+  }
+
+  public closeEditComponent(): void {
+    this.editComponent = false;
+    this.isLoading = true;
+    this.getTasks();
+  }
+
   public closeError(): void {
     this.error = null;
     this.isLoading = true;
@@ -67,5 +82,31 @@ export class TasksComponent implements OnInit {
 
   public setTask(task: Task): void {
     this.selectedTask = task;
+  }
+
+  public deleteTask(): void {
+    this.isLoading = true;
+    this.tasksService.deleteTask(this.selectedTask.id).subscribe(res => {
+      console.log(res);
+      this.isLoading = false;
+      this.getTasks();
+    }, err => {
+      console.log(err);
+      this.isLoading = false;
+      this.error = err.error.message;
+    });
+  }
+
+  public deleteAllTasks(): void {
+    this.isLoading = true;
+    this.tasksService.deleteTasks().subscribe(res => {
+      console.log(res);
+      this.isLoading = false;
+      this.getTasks();
+    }, err => {
+      console.log(err);
+      this.isLoading = false;
+      this.error = err.error.message;
+    });
   }
 }
