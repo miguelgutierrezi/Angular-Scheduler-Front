@@ -1,27 +1,34 @@
 # AngularSchedulerFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
+If you don't want to clone this repo, it is working on this [url](https://angular-scheduler-front.web.app/).
 
-## Development server
+This front was developed using Angular Framework version 10.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Following you will find some recommendations to clone, run and review the code.
 
-## Code scaffolding
+## Cloning the repo
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+For cloning the repo run the following command: `git clone https://github.com/miguelgutierrezi/Angular-Scheduler-Front.git`
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+There are two ways for running unit tests in this project. The first one is to run the tests with coverage using the following command `npm run test`.
+Also, if you want to run the unit tests using a live coverage with a web view, you could run `npm run test:web`.
 
-## Running end-to-end tests
+## Continuous Integration
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+This project are using continuous integration for the firebase deployment o the app. The **config.yaml** could be find under the following route: **.circleci/config.yaml**
+This continuous integration was made with circleCI.
 
-## Further help
+## Development server
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Run `npm start` or `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
+
+## Build
+
+Run `npm run build` or `ng build` to build the project. The build artifacts will be stored in the `dist/Angular-Schedule-Front` directory
+
+## Images
+
+Here you have some images for seeing how the app works:
+
