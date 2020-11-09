@@ -90,7 +90,7 @@
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
-          "codeCoverageExclude": ["src/app/services/models/*.ts"],
+          "codeCoverageExclude": ["src/app/services/auth.interceptor.ts"],
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",

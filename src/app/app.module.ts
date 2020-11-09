@@ -4,7 +4,7 @@ import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {TasksComponent} from './components/tasks/tasks.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {CypherService} from './services/cypher.service';
 import {TasksService} from './services/tasks.service';
 import {UserService} from './services/user.service';
@@ -14,6 +14,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthGuard} from './services/auth.guard';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import {AuthInterceptor} from './services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,12 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     CypherService,
     TasksService,
     UserService,
-    AuthGuard
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

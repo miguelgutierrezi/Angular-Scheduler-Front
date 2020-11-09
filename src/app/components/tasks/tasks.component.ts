@@ -19,6 +19,9 @@ export class TasksComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.userId = params.userId;
+    });
   }
 
 }

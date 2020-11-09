@@ -1,4 +1,5 @@
 export class Task {
+  private _ID: string;
   private _NAME: string;
   private _PRIORITY: number;
   private _DATE: Date;
@@ -7,6 +8,13 @@ export class Task {
   constructor() {
   }
 
+  get id(): string {
+    return this._ID;
+  }
+
+  set id(value: string) {
+    this._ID = value;
+  }
 
   get name(): string {
     return this._NAME;
