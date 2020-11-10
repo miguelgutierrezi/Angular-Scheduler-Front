@@ -10,6 +10,10 @@ Following you will find some recommendations to clone, run and review the code.
 
 For cloning the repo run the following command: `git clone https://github.com/miguelgutierrezi/Angular-Scheduler-Front.git`
 
+## Installing dependencies
+
+Inside the main folder, you should run `npm install`
+
 ## Running unit tests
 
 There are two ways for running unit tests in this project. The first one is to run the tests with coverage using the following command `npm run test`.
